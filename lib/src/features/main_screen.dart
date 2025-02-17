@@ -80,7 +80,6 @@ class _MainScreenState extends State<MainScreen> {
   Future<String> getCityFromZip(String zip) async {
     // simuliere Dauer der Datenbank-Anfrage
     await Future.delayed(const Duration(seconds: 3));
-    print('$zip zip');
 
     switch (zip) {
       case "10115":
