@@ -73,7 +73,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void dispose() {
-    citycodeController.dispose();
+    _citycodeController.dispose();
     super.dispose();
   }
 
