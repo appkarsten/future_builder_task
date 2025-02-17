@@ -8,7 +8,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final TextEditingController citycodeController = TextEditingController();
+  final TextEditingController _citycodeController = TextEditingController();
   Future<String>? _city;
 
   // TODO skiped
@@ -29,7 +29,7 @@ class _MainScreenState extends State<MainScreen> {
             child: Column(
               children: [
                 TextFormField(
-                  controller: citycodeController,
+                  controller: _citycodeController,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(), labelText: "Postleitzahl"),
                 ),
@@ -38,7 +38,7 @@ class _MainScreenState extends State<MainScreen> {
                   onPressed: () {
                     setState(() {
                       // get result from input
-                      _city = getCityFromZip(citycodeController.text);
+                      _city = getCityFromZip(_citycodeController.text);
                     });
                   },
                   child: const Text("Suche"),
