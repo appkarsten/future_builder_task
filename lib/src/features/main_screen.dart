@@ -10,11 +10,14 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final TextEditingController citycodeController = TextEditingController();
   Future<String>? _city;
-  @override
-  void initState() {
-    super.initState();
-    // _city = getCityFromZip('');
-  }
+
+  // TODO skiped
+  // don't see reason to initialize controllers over initState
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _city = getCityFromZip('');
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +37,14 @@ class _MainScreenState extends State<MainScreen> {
                 OutlinedButton(
                   onPressed: () {
                     setState(() {
+                      // get result from input
                       _city = getCityFromZip(citycodeController.text);
                     });
                   },
                   child: const Text("Suche"),
                 ),
                 const SizedBox(height: 32),
+                // FutureBuilder to see whats up
                 FutureBuilder(
                     future: _city,
                     builder: (context, snapshot) {
@@ -54,6 +59,7 @@ class _MainScreenState extends State<MainScreen> {
                           snapshot.hasError) {
                         return Text('Fehler: ${snapshot.error}');
                       } else {
+                        // output after start/hot reload
                         return const Text('Noch keine PLZ gesucht');
                       }
                     }),
